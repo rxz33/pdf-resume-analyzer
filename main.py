@@ -12,6 +12,11 @@ load_dotenv()  # Load environment variables from .env
 
 app = FastAPI()
 
+origins = [
+    "https://your-streamlit-app-url.streamlit.app",
+    # or "*" for testing (not recommended in production)
+]
+
 # Enable CORS for frontend (React/Streamlit)
 app.add_middleware(
     CORSMiddleware,
