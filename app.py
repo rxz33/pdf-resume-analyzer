@@ -27,7 +27,7 @@ if st.button("Analyze Resume"):
             data = {"job_role": job_role}
             
             try:
-                response = requests.post("https://pdf-resume-analyzer.onrender.com", files=files, data=data)
+                response = requests.post("https://pdf-resume-analyzer.onrender.com/api/analyze", files=files, data=data)
                 response.raise_for_status()
                 result = response.json()
                 st.success("Analysis complete!")
