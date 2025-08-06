@@ -16,13 +16,33 @@ print("🔑 GROQ_API_KEY loaded successfully.")
 
 def build_prompt(resume: str, job: str) -> str:
     return f"""
-You are a career advisor AI. Given the resume and job description below, analyze them.
+You are an expert career advisor AI.
 
-Return:
-1. Match percentage (0–100)
-2. Top 3 strengths in the resume
-3. Top 3 missing or weak areas
-4. Overall resume feedback
+Given the resume and job description below, analyze them and strictly follow this format in your response:
+
+---
+
+**1. Match Percentage (only a number between 0 and 100, do NOT include % sign):**  
+<number>
+
+**2. Top 3 Strengths:**  
+1. <...>  
+2. <...>  
+3. <...>
+
+**3. Top 3 Missing or Weak Areas:**  
+1. <...>  
+2. <...>  
+3. <...>
+
+**4. Overall Resume Feedback:**  
+<paragraph of actionable feedback>
+
+**5. Suggested Skills or Improvements:**  
+- <skill or suggestion>  
+- <skill or suggestion>
+
+---
 
 Resume:
 {resume}
